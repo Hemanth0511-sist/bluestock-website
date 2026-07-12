@@ -1,0 +1,27 @@
+# Virtual Environment
+.venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# SQLite Database
+*.db
+
+# Logs
+*.log
+
+# Output
+output/
+
+# VS Code
+.vscode/
+
+# Pytest
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
