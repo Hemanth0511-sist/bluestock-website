@@ -1,208 +1,314 @@
-\# N100 Financial Intelligence Platform
+\# 📊 N100 Financial Intelligence Platform
 
 
 
-\## Project Overview
+An end-to-end financial analysis platform designed to evaluate, compare, rank, and screen companies in the Nifty 100 using financial statements, key performance indicators, valuation metrics, and financial health indicators.
 
 
 
-The N100 Financial Intelligence Platform is a data engineering and financial analytics project that processes financial data of Nifty 100 companies.
+\## 🚀 Overview
 
 
 
-\## Sprint 1 Goal
+The N100 Financial Intelligence Platform transforms financial data into structured insights to help users explore company performance and compare businesses across sectors.
 
 
 
-\- Build ETL Pipeline
-
-\- Create SQLite Database
-
-\- Validate Data Quality
-
-\- Load 12 Excel datasets
-
-\- Generate Audit Reports
+The platform includes financial analysis, company screening, peer comparisons, sector analysis, market trends, and financial reporting through an interactive dashboard.
 
 
 
-\## Tech Stack
+\## ✨ Key Features
 
 
 
-\- Python
+\* \*\*Financial Analysis:\*\* Analyse company financial statements and key financial ratios.
 
-\- Pandas
+\* \*\*Company Screener:\*\* Filter companies using financial quality, growth, valuation, dividend, and debt-related metrics.
 
-\- SQLite
+\* \*\*Financial Health Score:\*\* Evaluate company financial health using selected financial indicators.
 
-\- SQLAlchemy
+\* \*\*Company Ranking:\*\* Rank and compare companies using financial metrics and composite scores.
 
-\- Pytest
+\* \*\*Company Search:\*\* Search for companies and explore their financial information.
 
+\* \*\*Peer Comparison:\*\* Compare companies within similar industries or peer groups.
 
+\* \*\*Sector Analysis:\*\* Explore financial performance across different sectors.
 
-\## Project Structure
+\* \*\*Market Trends:\*\* Examine available historical market and financial data.
 
+\* \*\*Capital Analysis:\*\* Explore market capitalisation and related company metrics.
 
+\* \*\*Financial Reports:\*\* Present financial analysis and screening results.
 
-\- data/
-
-\- src/
-
-\- database/
-
-\- output/
-
-\- tests/
-
-\- docs/
+\* \*\*Data Export:\*\* Export supported screening results to CSV.
 
 
 
-## Sprint 4 — Streamlit Dashboard & Valuation
+\## 🛠️ Technology Stack
 
-Sprint 4 delivers an 8-screen Streamlit dashboard and a valuation module for the Nifty 100 financial intelligence platform.
 
-### Dashboard Run Instructions
 
-Activate the virtual environment:
+\* \*\*Programming Language:\*\* Python
+
+\* \*\*Dashboard:\*\* Streamlit
+
+\* \*\*Data Processing:\*\* Pandas, NumPy
+
+\* \*\*Database:\*\* SQLite, SQLAlchemy
+
+\* \*\*Excel Processing:\*\* OpenPyXL
+
+\* \*\*Data Visualisation:\*\* Plotly
+
+\* \*\*Testing:\*\* Pytest
+
+\* \*\*Configuration:\*\* Python Dotenv
+
+\* \*\*Version Control:\*\* Git and GitHub
+
+
+
+\## 📁 Project Structure
+
+
+
+```text
+
+N100-Financial-Intelligence-Platform/
+
+├── src/
+
+│   ├── analysis/
+
+│   ├── database/
+
+│   ├── etl/
+
+│   ├── search/
+
+│   ├── watchlist/
+
+│   ├── portfolio/
+
+│   └── utils/
+
+├── tests/
+
+├── reports/
+
+├── requirements.txt
+
+├── README.md
+
+└── .gitignore
+
+```
+
+
+
+\*Note: The structure above highlights the main project areas. Actual folders and files may vary as development progresses.\*
+
+
+
+\## ⚙️ Installation and Setup
+
+
+
+\### 1. Clone the repository
+
+
+
+```bash
+
+git clone https://github.com/Hemanth0511-sist/bluestock-website.git
+
+```
+
+
+
+\### 2. Navigate to the project directory
+
+
+
+If the repository contains the N100 project in a separate folder, navigate to that folder before continuing.
+
+
+
+```bash
+
+cd N100-Financial-Intelligence-Platform
+
+```
+
+
+
+\### 3. Create a virtual environment
+
+
+
+```bash
+
+python -m venv .venv
+
+```
+
+
+
+\### 4. Activate the virtual environment
+
+
+
+\*\*Windows PowerShell:\*\*
+
+
 
 ```powershell
-.venv\Scripts\Activate.ps1
+
+.\\.venv\\Scripts\\Activate.ps1
+
 ```
 
-Run the dashboard:
 
-```powershell
-streamlit run src/dashboard/app.py
+
+\### 5. Install dependencies
+
+
+
+```bash
+
+python -m pip install -r requirements.txt
+
 ```
 
-The dashboard runs locally at:
 
-```text
-http://localhost:8501
+
+\### 6. Run the dashboard
+
+
+
+```bash
+
+python -m streamlit run src/dashboard/app.py
+
 ```
 
-### Dashboard Screens
 
-1. **Home** — KPI summary, sector distribution, top quality companies, and year selection.
-2. **Company Profile** — company search, company information, financial KPIs, revenue/profit trends, ROE/ROCE trends, and pros/cons.
-3. **Screener** — financial metric filters, preset strategies, live results, and CSV export.
-4. **Peer Comparison** — peer-group selection, benchmark comparison, KPI comparison, and radar chart.
-5. **Trend Analysis** — company search, multi-metric selection, and 10-year financial trends.
-6. **Sector Analysis** — sector selection, revenue/ROE bubble chart, and sector median KPIs.
-7. **Capital Allocation Map** — treemap of capital-allocation patterns and company lists.
-8. **Annual Reports** — company search, available report years, and BSE annual-report links.
 
-### Valuation Module
+The dashboard should open in your browser if the application entry point and dependencies are configured correctly.
 
-Run the valuation module with:
 
-```powershell
-python src/analytics/valuation.py
+
+\## 📈 Data Sources
+
+
+
+The platform is designed to process structured financial datasets, including:
+
+
+
+\* Company information
+
+\* Profit and loss statements
+
+\* Balance sheets
+
+\* Cash flow statements
+
+\* Financial ratios
+
+\* Market capitalisation
+
+\* Stock prices
+
+\* Peer groups
+
+\* Sector information
+
+\* Financial analysis and reports
+
+
+
+The availability and accuracy of analytical results depend on the quality, completeness, and date of the underlying data.
+
+
+
+\## 🧪 Testing
+
+
+
+The project includes automated tests for supported application components.
+
+
+
+Run the test suite with:
+
+
+
+```bash
+
+python -m pytest
+
 ```
 
-Generated outputs:
 
-```text
-output/
-├── valuation_summary.xlsx
-└── valuation_flags.csv
-```
 
-The valuation summary contains:
+\## 🎯 Project Objectives
 
-- company_id
-- company_name
-- sector
-- P/E
-- P/B
-- EV/EBITDA
-- FCF_yield_pct
-- 5yr_median_PE
-- PE_vs_sector_median_pct
-- flag
 
-Valuation flags:
 
-```text
-P/E > sector median × 1.5  → Caution
-P/E < sector median × 0.7  → Discount
-Otherwise                  → Fair
-```
+\* Organise financial data into a structured analytical system.
 
-FCF yield:
+\* Calculate and interpret important financial indicators.
 
-```text
-FCF Yield (%) = Free Cash Flow / Market Capitalization × 100
-```
+\* Support company screening and peer comparison.
 
-### Sprint 4 QA
+\* Present financial information through an interactive dashboard.
 
-The dashboard was tested for:
+\* Improve the accessibility of financial analysis and company research.
 
-- All 8 dashboard screens
-- 10 different company tickers
-- Multiple sectors
-- Partial historical data
-- Missing financial data
-- Extreme screener values
-- Dashboard compilation
-- Chart rendering
-- Screener filtering
-- CSV export
-- Valuation output generation
 
-### Sprint 4 Deliverables
 
-```text
-src/dashboard/app.py
+\## 🔮 Future Enhancements
 
-src/dashboard/pages/
-├── 01_home.py
-├── 02_profile.py
-├── 03_screener.py
-├── 04_peers.py
-├── 05_trends.py
-├── 06_sectors.py
-├── 07_capital.py
-└── 08_reports.py
 
-src/dashboard/utils/db.py
-src/analytics/valuation.py
 
-output/
-├── valuation_summary.xlsx
-└── valuation_flags.csv
-```
+\* Integrate reliable, regularly updated financial data sources.
 
-### Sprint 4 Retrospective
+\* Add historical performance comparisons and advanced visualisations.
 
-#### Completed
+\* Improve screening criteria and financial scoring methodologies.
 
-The Streamlit dashboard, valuation module, and integration QA were completed during Sprint 4.
+\* Expand portfolio analytics and risk assessment.
 
-#### UX Decisions
+\* Add user authentication and personalised watchlists.
 
-- Wide dashboard layout for financial tables and charts.
-- Sidebar navigation for the eight screens.
-- Company search for company-specific analysis.
-- Interactive Plotly charts for financial visualization.
-- Missing values handled without crashing the dashboard.
-- Live screener filtering with CSV export.
+\* Improve automated report generation.
 
-#### Data Edge Cases
 
-The dashboard was tested with:
 
-- Partial historical company data
-- Missing financial metrics
-- Missing FCF values
-- Different historical periods
-- Missing valuation values
-- Extreme screener filter combinations
+\## ⚠️ Disclaimer
 
-#### Final Status
 
-Sprint 4 implementation and QA are complete and ready for final review.
+
+This project is intended for educational, analytical, and research purposes. Financial scores and screening results depend on the underlying data and calculation methods. They should not be treated as guaranteed investment outcomes or personalised financial advice.
+
+
+
+\## 👨‍💻 Author
+
+
+
+\*\*Hemanth Kumar D\*\*
+
+
+
+Electronics and Communication Engineering
+
+
+
+GitHub: \[@Hemanth0511-sist](https://github.com/Hemanth0511-sist)
+
+
+
