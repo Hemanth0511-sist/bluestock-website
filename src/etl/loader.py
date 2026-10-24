@@ -1,54 +1,76 @@
 from pathlib import Path
+
 import pandas as pd
 
 
 class ExcelLoader:
-    def __init__(self, data_folder="data/raw"):
-        self.data_folder = Path(data_folder)
+
+    def __init__(self):
+        self.data_folder = Path("data/raw")
 
     def load_excel(self, filename, sheet_name=0):
+
         file_path = self.data_folder / filename
 
         if not file_path.exists():
-            raise FileNotFoundError(file_path)
+            raise FileNotFoundError(f"File not found: {file_path}")
 
+        # Preview first 5 rows
         preview = pd.read_excel(
-            file_path,
-            sheet_name=sheet_name,
-            header=None,
-            nrows=3,
-            engine="openpyxl"
+            file_path, sheet_name=sheet_name, header=None, nrows=5, engine="openpyxl"
         )
 
-        first_cell = str(preview.iloc[0, 0])
+        print("\n" + "=" * 70)
+        print(f"Checking file: {filename}")
+        print(preview)
+        print("=" * 70)
 
-        if "Mkt Fintech" in first_cell:
+        # Files whose headers are on the second row
+        header_row = 0
+
+        header_files = {
+            "companies.xlsx",
+            "profitandloss.xlsx",
+            "balancesheet.xlsx",
+            "cashflow.xlsx",
+        }
+
+        if filename.lower() in header_files:
             header_row = 1
-        else:
-            header_row = 0
 
+        # Read Excel
         df = pd.read_excel(
-            file_path,
-            sheet_name=sheet_name,
-            header=header_row,
-            engine="openpyxl"
+            file_path, sheet_name=sheet_name, header=header_row, engine="openpyxl"
         )
+
+        # Remove empty rows
+        df = df.dropna(how="all")
+        df = df.dropna(axis=1, how="all")
+        df.reset_index(drop=True, inplace=True)
 
         return df
 
-    def show_info(self, df):
-        print("=" * 60)
-        print(f"Rows    : {len(df)}")
-        print(f"Columns : {len(df.columns)}")
-        print(df.columns.tolist())
-        print("=" * 60)
-
     def load_all_excels(self):
-        dataframes = {}
 
-        for file in self.data_folder.glob("*.xlsx"):
-            print(f"Loading {file.name}...")
-            df = self.load_excel(file.name)
-            dataframes[file.stem] = df
+        excel_files = [
+            "analysis.xlsx",
+            "balancesheet.xlsx",
+            "cashflow.xlsx",
+            "companies.xlsx",
+            "documents.xlsx",
+            "financial_ratios.xlsx",
+            "market_cap.xlsx",
+            "peer_groups.xlsx",
+            "profitandloss.xlsx",
+            "prosandcons.xlsx",
+            "sectors.xlsx",
+            "stock_prices.xlsx",
+        ]
 
-        return dataframes
+        all_data = {}
+
+        for file in excel_files:
+            print(f"Loading {file}...")
+            all_data[file.replace(".xlsx", "")] = self.load_excel(file)
+
+        return all_data
